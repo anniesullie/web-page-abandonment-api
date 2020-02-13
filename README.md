@@ -1,4 +1,8 @@
 # Proposal: Metrics for web page abandonment
+Author: sullivan@chromium.org, skobes@chromium.org
+
+Last modified: 2020-02-13
+
 ## Why are abandonment metrics important?
 ### A blind spot for real user monitoring
 Currently, when users navigate away from a page before loading metrics like first contentful paint fire, the page’s analytics may not be loaded yet, and so the abandoned page load is not counted in the site’s analytics. This means client-side analytics, which many sites rely on, are blind to abandoned navigations that do not get to a point where the analytics script is able to execute and beacon a successful page hit.
