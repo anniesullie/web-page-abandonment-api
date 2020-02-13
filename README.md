@@ -26,7 +26,7 @@ Developers will be able to make some conclusions based on the increased number o
 
 ## Non-Goals:
 * Provide information about the reasons users may have abandoned the site. It’s not possible to understand if a user navigated away from a site due to slow performance, clicking the wrong link, or some other reason.
-* Provide a significant amount of information that’s not currently possible for a site to compute about abandonment. Sites could use the Network Error Logging API’s “abandoned” error and/or server logs in combination with injecting JavaScript very early in the load to track early abandonments themselves, with few gaps. But this would be prohibitively complex. It would make performance worse, and often sites use third party analytics providers which would load after the abandonment.
+* Provide a significant amount of information that’s not currently possible for a site to compute about abandonment. Sites could use the Network Error Logging API’s `abandoned` error and/or server logs in combination with injecting JavaScript very early in the load to track early abandonments themselves, with few gaps. But this would be prohibitively complex. It would make performance worse, and often sites use third party analytics providers which would load after the abandonment.
 
 ## Defining Abandonment
 We define abandonment as a **user-initiated** navigation away from the page **before it reaches first contentful paint**.
@@ -62,6 +62,6 @@ Report-To: {
            }
 ```
 
-One concern here is the overlap with the abandoned error in the [Network Error Logging API](https://www.w3.org/TR/network-error-logging/). That API is similar, but subtly different:
+One concern here is the overlap with the `abandoned` error in the [Network Error Logging API](https://www.w3.org/TR/network-error-logging/). That API is similar, but subtly different:
 * It reports abandonment for **all** network requests, not just page loads.
 * It only reports abandonment for the **request**, not the **page load**. For example, if the initial HTML of the page loads fully, but the user abandons the page before content displays, it's not abandonment from the NEL perspective but it is from this API's perspective.
